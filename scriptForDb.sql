@@ -1,0 +1,19 @@
+create database HIBERNATE2;
+USE HIBERNATE2;
+
+CREATE TABLE users
+(
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    age VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE autos
+(
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    model VARCHAR(255),
+    color VARCHAR(255),
+    user_id INTEGER,
+    CONSTRAINT autos_user_id_fk
+    FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
